@@ -1,25 +1,35 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Box } from '@mui/material';
+import NavBar from './components/NavBar';
+import Home from './pages/Home';
+import Exercise from './pages/Exercise';
+import Footer from './components/Footer';
+import backgroundImage from './assets/images/gym-background.png'; // Adjust the path to your background image
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box
+      sx={{
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.45), rgba(255,255,255,0.45)), url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh', // Ensure the background covers the entire viewport
+        width: { xl: '1500px' },
+        minWidth: '100%',
+      }}
+      width="400px"
+    >
+      <br/>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/exercise/:id" element={<Exercise />} />
+      </Routes>
+      <Footer />
+    </Box>
   );
-}
+};
 
 export default App;
