@@ -1,33 +1,54 @@
 import React from 'react'
-import { useEffect, useState } from 'react'
-import { Box, Button, Typography, TextField, Stack } from '@mui/material'
+import { useState } from 'react'
+import { Box, Button, TextField, Stack } from '@mui/material'
 import { fetch_data, options } from '/Users/vishvamehta/Desktop/gym-react-project/src/utils/fetch_data.js'
 
-const Search = () => {
+const Search = ({setExercises}) => {
 
-    const [first, setfirst] = useState('');
+    const [search, setSearch] = useState('');
+
     const handleSearchRequest =  async () => {
-        if(first) {
+        if(search) {
             const exerciseData = await fetch_data(`https://exercisedb.p.rapidapi.com/exercises`, options);
-            console.log(exerciseData);
+            //console.log(exerciseData);
+            const exercisesReturned = exerciseData.filter((exercise) => exercise.name.toLowerCase().includes(search) || exercise.target.toLowerCase().includes(search) || exercise.equipment.toLowerCase().includes(search) 
+            || exercise.bodyPart.toLowerCase().includes(search)
+            );
+            setSearch('');
+            setExercises(exercisesReturned);
         }
     }
 
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent={'center'} p='20px'>
-        <Typography fontWeight={650} sx={{ fontSize: {lg: '44px', xs: '30px'}}} mb="50px" textAlign="Center" backgroundColor="rgba(255,255,255,0.8)" boxShadow="0px 4px 10px rgba(0, 0, 0, 0.1)" borderRadius='15px' p="5%">
-            Unleash Your Potential
-        </Typography>
-        <Box position={'relative'} mb={'65px'}>
+        
+        <Box position={'relative'} mb={'65px'} >
             <TextField
                 id="Search"
                 label="Search Exercises"
                 variant="outlined"
-                value = {first}
-                onChange = {(e) => setfirst(e.target.value.toLowerCase())}
-
-                sx={{ borderRadius: '15px' , width: {lg:'60em', xs:"30em"}, backgroundColor: 'rgba(255,255,255,0.8)', boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', borderRadius: '15px'}}
+                value = {search}
+                onChange = {(e) => setSearch(e.target.value.toLowerCase())}
+            
+                sx={{
+                    width: { lg: '60em', xs: '30em' },
+                    backgroundColor: 'rgba(255,255,255,0.8)',
+                    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+                    borderRadius: '15px',
+                    '& .MuiOutlinedInput-root': {
+                        borderRadius: '15px',
+                    },
+                    '& .MuiOutlinedInput-notchedOutline': {
+                        border: 'none',
+                    },
+                    '& .MuiInputLabel-root': {
+                        color: 'rgba(0, 0, 0, 0.6)',
+                    },
+                    '& .MuiOutlinedInput-input': {
+                        padding: '14px 14px',
+                    },
+                }}
             />
             <Button
                 variant="contained"

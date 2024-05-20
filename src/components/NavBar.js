@@ -7,11 +7,12 @@ const NavBar = () => {
   return (
     <Stack
       direction="row"
-      justifyContent="space-around"
+      justifyContent="space-evenly"
       px="30px"
       py="20px"
       ml="10%"
       mr="10%"
+      mt="2.5%"
       textAlign={'center'}
       fontFamily={'Josefin Sans, sans-serif'}
       bgcolor="#FFF" // White background color

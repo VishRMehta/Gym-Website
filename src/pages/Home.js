@@ -3,9 +3,12 @@ import { Box } from '@mui/material'
 import Exercises from '../components/Exercises'
 import Search from '../components/Search'
 import Banner from '../components/Banner'
-import backgroundImage from '../assets/images/gym-background.png' // Adjust the path to your background image
+import { useState } from 'react'
 
 const Home = () => {
+  
+  const [exercises, setExercises] = useState([]) // Add a state for exercises
+
   return (
     <Box
       sx={{
@@ -13,8 +16,13 @@ const Home = () => {
       }}
     >
       <Banner />
-      <Search />
-      <Exercises />
+      <Search
+        setExercises={setExercises}
+      />
+      <Exercises 
+        exercises={exercises}
+        setExercises={setExercises}
+      />
     </Box>
   )
 }
