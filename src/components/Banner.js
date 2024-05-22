@@ -9,11 +9,8 @@ const Banner = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: 'auto',
         padding: '40px',
-        height: 'auto', // Adjust the height to account for the navbar
-        marginTop: '60px', // Add margin to push the content below the navbar
-        boxSizing: 'border-box', // Ensure padding and margin are included in the total height
       }}
     >
       <Box
@@ -52,7 +49,7 @@ const Banner = () => {
           display: { xs: 'none', md: 'block' },
         }}
       >
-        
+        {/* <img src={BannerImage} alt="Banner" style={{ maxWidth: '100%', height: 'auto' }} /> */}
       </Box>
     </Box>
   );
