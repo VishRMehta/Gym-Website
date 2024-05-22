@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, TextField, Stack, Typography } from '@mui/material';
 import { fetch_data, options } from '../utils/fetch_data';
+import '../styles.css';
 
 const Search = ({ setExercises, bodyPart, setBodyPart }) => {
   const [search, setSearch] = useState('');
@@ -24,7 +25,8 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
                || item.equipment.toLowerCase().includes(search)
                || item.bodyPart.toLowerCase().includes(search),
       );
-      console.log('Filtered Exercuses', searchedExercises);
+      console.log('Raw data', exerciseData);
+      console.log('Filtered Exercises', searchedExercises);
       setSearch('');
       setExercises(searchedExercises);
     }
@@ -78,22 +80,21 @@ const Search = ({ setExercises, bodyPart, setBodyPart }) => {
         spacing={2}
         flexWrap="wrap"
         justifyContent="center"
-        sx={{ width: '100%', p: '25px' }}
+        className="custom-margin"
+        sx={{ width: '100%', p: '25px'}}
       >
         {bodyParts.map((part, index) => (
           <Box
             key={index}
             color="white"
             height="100%"
-            margin-bottom="20px"
             sx={{
               m: 1,
               p: 1,
-              mb: 1,
+              mb: 4,
               border: '3px solid red',
               borderRadius: '20px',
               cursor: 'pointer',
-              marginBottom: '20px',
               '&:hover': {
                 backgroundColor: 'red',
                 color: 'white',

@@ -26,6 +26,9 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/exercise/:id" element={<Exercise />} />
       </Routes>
+      <br/>
+      <br/>
+      <br/>
       <Footer />
     </Box>
   );

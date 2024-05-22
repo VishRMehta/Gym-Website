@@ -53,7 +53,7 @@ const NavBar = () => {
           Home
         </Link>
         <a
-          href="#exercises"
+          href="/#exercises"
           style={linkStyle}
           onMouseEnter={(e) => {
             e.target.style.textDecoration = hoverStyle.textDecoration;
