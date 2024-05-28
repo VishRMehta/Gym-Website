@@ -1,3 +1,9 @@
+# Demo
+
+![SS1](https://github.com/VishRMehta/Gym-Website/blob/master/Screenshot%202024-05-28%20at%2017.33.34.png)
+![SS2](https://github.com/VishRMehta/Gym-Website/blob/master/Screenshot%202024-05-28%20at%2017.33.50.png)
+![SS3](https://github.com/VishRMehta/Gym-Website/blob/master/Screenshot%202024-05-28%20at%2017.33.58.png)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
